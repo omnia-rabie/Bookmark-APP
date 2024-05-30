@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bookmarker</title>
+    <link rel="icon" href="image/favicon.ico">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="fonts/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+<body>
+
+    <div class="container text-center">
+        <h1 class="position-relative d-inline-block">Bookmarker</h1>
+        <div class="container bookmark-inputs mt-5 py-4">
+            <h2 class="mb-2 fw-medium d-inline-block">
+                <i class="fa-solid fa-bookmark "></i>
+                  Bookmark your favorite sites 
+                <i class="fa-solid fa-bookmark"></i>
+            </h2>
+          
+                <div class="my-3 text-start">
+                    <label for="websiteName" class="form-label fw-semibold pb-1">
+                        <i class="fa-solid fa-book-bookmark pe-2"></i>
+                         Site Name
+                    </label>
+
+                    <input oninput="ScanBookmarkNameNumberOfCharacters(this.value)" type="text" class="form-control" id="websiteName" placeholder="Bookmark Name">
+                    <p class="d-none text-danger" id="bookmarkNameRule">make sure the bookmark name is more than or equal 3 characters and is not repeated</p>
+                </div>
+                <div class="mb-4 text-start">
+                    <label for="websiteURL" class="form-label fw-semibold pb-1"><i class="fa-solid fa-link pe-2"></i> Site URL</label>
+                    <input oninput="ScanBookmarkLinkUrlValidation(this.value)"  type="url" class="form-control" id="websiteURL" placeholder="Website URL">
+                    <p class="d-none text-danger" id="bookmarkLinkRule">make sure the bookmark URL is valid example: <i>https://www.example.com</i>  or <i>http://www.example.com</i>  or <i>https://example.com</i>  or <i>www.example.com</i>  or <i>example.com</i></p>
+                </div>
+                <button onclick="addBookmarkItemToTable()" class="btn btn-danger px-5">Submit</button>
+        </div>
+
+        <div class="table-responsive mt-3">
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col" class="fw-bold p-2">Index</th>
+                    <th scope="col" class="fw-bold p-2">Website Name</th>
+                    <th scope="col" class="fw-bold p-2">Visit</th>
+                    <th scope="col" class="fw-bold p-2">Delete</th>
+                  </tr>
+                </thead>
+                <tbody id="tableBody"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
